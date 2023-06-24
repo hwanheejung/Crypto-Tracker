@@ -132,7 +132,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>SYMBOL</span>
-              <span>{info?.symbol}</span>
+              <span>${info?.symbol}</span>
             </OverviewItem>
             <OverviewItem>
               <span>OPEN SOURCE</span>
