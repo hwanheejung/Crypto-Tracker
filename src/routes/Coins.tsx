@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../api";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.div`
   padding: 0 20px;
@@ -20,8 +21,8 @@ const Header = styled.header`
 const CoinsList = styled.ul``;
 
 const Coin = styled.li`
-  background-color: white;
-  color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.boxColor};
+  color: ${(props) => props.theme.textColor};
   margin-bottom: 10px;
   padding: 20px;
   border-radius: 15px;
@@ -67,6 +68,9 @@ function Coins() {
   return (
     <Container>
       <Header>
+        <Helmet>
+          <title>Coin</title>
+        </Helmet>
         <Title>Coin!!</Title>
       </Header>
       {isLoading ? (

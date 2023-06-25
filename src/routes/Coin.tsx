@@ -12,6 +12,7 @@ import Chart from "./Chart";
 import Price from "./Price";
 import { useQuery } from "react-query";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
+import { Helmet } from "react-helmet-async";
 
 const Container = styled.div`
   padding: 0 20px;
@@ -175,6 +176,11 @@ function Coin() {
   return (
     <Container>
       <Header>
+        <Helmet>
+          <title>
+            {state ? state : loading ? "Loading..." : infoData?.name}
+          </title>
+        </Helmet>
         <Link to={`/`}>&larr;</Link>
         <Title>{state ? state : loading ? "Loading..." : infoData?.name}</Title>
       </Header>
@@ -192,8 +198,8 @@ function Coin() {
               <span>${infoData?.symbol}</span>
             </OverviewItem>
             <OverviewItem>
-              <span>OPEN SOURCE:</span>
-              <span>{infoData?.open_source}</span>
+              <span>Price:</span>
+              <span>{tickersData?.quotes.USD.price.toFixed(3)}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>
@@ -218,7 +224,7 @@ function Coin() {
           </Tabs>
 
           <Routes>
-            <Route path="chart" element={<Chart />}></Route>
+            <Route path="chart" element={<Chart coinId={coinId} />}></Route>
             <Route path="price" element={<Price />}></Route>
           </Routes>
         </>
