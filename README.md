@@ -9,6 +9,7 @@
     <img src="https://img.shields.io/badge/Styled_Componenets-^6.0.0-DB7093?logo=styled components">
     <img src="https://img.shields.io/badge/ApexCharts-^3.41.0-F7DF1E?logo=javascript">
     <img src="https://img.shields.io/badge/React_Helmet_async-^1.3.0-61DAFB?logo=react">
+   <img src="https://img.shields.io/badge/recoil-^0.7.7-aaa?logo=Coil">
 </p>
 
 # Used API
