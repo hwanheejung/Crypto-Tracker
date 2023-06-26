@@ -2,8 +2,10 @@ import { useQuery } from "react-query";
 import { fetchCoinHistory } from "../api";
 import ApexChart from "react-apexcharts";
 import { isPropertySignature } from "typescript";
-import { theme } from "../theme";
+// import { theme } from "../theme";
 import { useOutletContext } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 interface IChart {
   coinId: string | undefined;
@@ -19,6 +21,7 @@ interface IData {
   market_cap: string;
 }
 function Chart() {
+  const isDark = useRecoilValue(isDarkAtom);
   const { coinId } = useOutletContext<IChart>();
   const { isLoading, data } = useQuery<IData[]>(["ohlcv", coinId], () =>
     fetchCoinHistory(coinId!)
@@ -39,7 +42,7 @@ function Chart() {
           ]}
           options={{
             theme: {
-              mode: "dark",
+              mode: isDark ? "dark" : "light",
             },
             chart: {
               height: 500,
@@ -68,7 +71,8 @@ function Chart() {
                 new Date(price.time_close * 1000).toUTCString()
               ),
             },
-            colors: [`${theme.accentColor}`],
+            // colors: [`${theme.accentColor}`],
+            colors: [`${isDark ? "#BB86FC" : "#6100EE"}`],
             tooltip: {
               y: {
                 formatter: (value) => `$ ${value.toFixed(3)}`,

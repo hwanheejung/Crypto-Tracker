@@ -53,6 +53,7 @@ const Overview = styled.div`
   padding: 10px;
   border-radius: 10px;
   background-color: ${(props) => props.theme.boxColor};
+  border: 1px solid ${(props) => props.theme.textColor};
 `;
 const OverviewItem = styled.div`
   display: flex;

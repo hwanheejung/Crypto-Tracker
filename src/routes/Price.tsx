@@ -14,6 +14,7 @@ const BigWrapper = styled.div`
   background-color: ${(props) => props.theme.boxColor};
   border-radius: 10px;
   padding: 20px;
+  border: 1px solid ${(props) => props.theme.textColor};
 
   span {
     display: block;
@@ -33,6 +34,7 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.boxColor};
   border-radius: 10px;
   padding: 20px;
+  border: 1px solid ${(props) => props.theme.textColor};
   span {
     display: block;
   }
