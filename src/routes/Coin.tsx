@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   useMatch,
+  Outlet,
 } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
@@ -122,7 +123,7 @@ interface IInfoData {
   first_data_at: string;
   last_data_at: string;
 }
-interface IPriceData {
+export interface IPriceData {
   id: string;
   name: string;
   symbol: string;
@@ -223,10 +224,7 @@ function Coin() {
             </Tab>
           </Tabs>
 
-          <Routes>
-            <Route path="chart" element={<Chart coinId={coinId} />}></Route>
-            <Route path="price" element={<Price />}></Route>
-          </Routes>
+          <Outlet context={{ coinId, tickersData }} />
         </>
       )}
     </Container>

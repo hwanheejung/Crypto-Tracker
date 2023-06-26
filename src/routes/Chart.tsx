@@ -3,6 +3,7 @@ import { fetchCoinHistory } from "../api";
 import ApexChart from "react-apexcharts";
 import { isPropertySignature } from "typescript";
 import { theme } from "../theme";
+import { useOutletContext } from "react-router-dom";
 
 interface IChart {
   coinId: string | undefined;
@@ -17,7 +18,8 @@ interface IData {
   volume: string;
   market_cap: string;
 }
-function Chart({ coinId }: IChart) {
+function Chart() {
+  const { coinId } = useOutletContext<IChart>();
   const { isLoading, data } = useQuery<IData[]>(["ohlcv", coinId], () =>
     fetchCoinHistory(coinId!)
   );

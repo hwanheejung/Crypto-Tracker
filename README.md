@@ -23,5 +23,7 @@
 # TODO
 
 - [x] Go back button
-- [] Price Tab
-- [] CandleStick Chart
+- [x] Price Tab
+- [ ] CandleStick Chart
+- [ ] Home sceen pagination
+- [x] Deploy
